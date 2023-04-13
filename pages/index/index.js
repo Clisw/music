@@ -33,18 +33,25 @@ Page({
 
   //获取新闻列表
   getNewsData(){    
-    queryNews({
-      limit:3,
-      hot:true
-    }).then(res=>{
-       res.data.forEach(item=>{
-         item.view_count=formatNum(item.view_count)
-         item.publish_date=formatTime(item.publish_date,5)
-       })
-       this.setData({
-         newsArr:res.data
-       })
+    var res = queryNews();
+    res.data.forEach(item=>{
+      item.publish_date=formatTime(item.publish_date,5)
     })
+    this.setData({
+      newsArr:res.data
+    })
+    // queryNews({
+    //   limit:3,
+    //   hot:true
+    // }).then(res=>{
+    //    res.data.forEach(item=>{
+    //      item.view_count=formatNum(item.view_count)
+    //      item.publish_date=formatTime(item.publish_date,5)
+    //    })
+    //    this.setData({
+    //      newsArr:res.data
+    //    })
+    // })
 
   },
   

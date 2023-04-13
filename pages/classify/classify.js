@@ -17,7 +17,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   async onLoad(options) {
-    let {idx} = options;    
+    let {idx} = options;
     await this.getNavList(); 
     if(idx){
       this.navChange(idx);
@@ -29,13 +29,19 @@ Page({
 
   //获取分类导航
   async getNavList(){
-    await listNav().then(res=>{
-      console.log(res);
-      this.setData({
-        navArr:res.data
-      })
-      this.selectComponent("#myTabs").resize()
-    })
+    var res = listNav();
+    console.log(res);
+    this.setData({
+      navArr:res.data
+    });
+    // this.selectComponent("myTabs").resize();
+  //   await listNav().then(res=>{
+  //     console.log(res);
+  //     this.setData({
+  //       navArr:res.data
+  //     })
+  //     this.selectComponent("#myTabs").resize()
+  //   })
   },
 
   //获取产品列表

@@ -1,6 +1,7 @@
 <navigator 
-url="/pages/newsDetail/newsDetail?id={{item._id}}" 
+url="" 
 class="nsitem">
+<!-- /pages/newsDetail/newsDetail?id={{item._id}} -->
   <view class="pic">
     <image class="img" src="{{item.picurl}}" mode="aspectFill"/>
   </view>
@@ -13,10 +14,6 @@ class="nsitem">
         <van-icon name="clock-o" size="14" class="vanicon"/>
         <text>{{item.publish_date}}</text>
       </view>
-      <view class="block">
-        <van-icon name="eye-o" size="14" class="vanicon"/>
-        <text>{{item.view_count}}</text>
-      </view>      
       <view class="block">
         <van-icon name="user-o" size="14" class="vanicon"/>
         <text>{{item.author}}</text>

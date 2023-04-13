@@ -23,28 +23,49 @@ Page({
     this.setData({
       loading:true
     })
-    queryNews({
-      limit:8,
+    var res = queryNews({
+      limit:3,
       size
-    }).then(res=>{
-      console.log(res);
-      res.data.forEach(item=>{
-        item.view_count=formatNum(item.view_count)
-        item.publish_date=formatTime(item.publish_date,5)
-      })
-      let oldData = this.data.newsArr      
-      let newData = oldData.concat(res.data);   
-      wx.stopPullDownRefresh()   
-      this.setData({
-        newsArr:newData,
-        loading:false
-      })
-      if(this.data.newsArr.length == res.total){
-        this.setData({
-          isData:true
-        })
-      }
+    });
+    console.log(res);
+    res.data.forEach(item=>{
+      item.view_count=formatNum(item.view_count)
+      item.publish_date=formatTime(item.publish_date,5)
     })
+    let oldData = this.data.newsArr      
+    let newData = oldData.concat(res.data);   
+    wx.stopPullDownRefresh()   
+    this.setData({
+      newsArr:newData,
+      loading:false
+    })
+    if(this.data.newsArr.length == res.total){
+      this.setData({
+        isData:true
+      })
+    }
+    // queryNews({
+    //   limit:3,
+    //   size
+    // }).then(res=>{
+    //   console.log(res);
+    //   res.data.forEach(item=>{
+    //     item.view_count=formatNum(item.view_count)
+    //     item.publish_date=formatTime(item.publish_date,5)
+    //   })
+    //   let oldData = this.data.newsArr      
+    //   let newData = oldData.concat(res.data);   
+    //   wx.stopPullDownRefresh()   
+    //   this.setData({
+    //     newsArr:newData,
+    //     loading:false
+    //   })
+    //   if(this.data.newsArr.length == res.total){
+    //     this.setData({
+    //       isData:true
+    //     })
+    //   }
+    // })
   },
 
   /**

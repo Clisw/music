@@ -63,7 +63,7 @@
 <view class="news">
   <view class="pubTitle">
     <view class="en">News</view>
-    <view class="cn">新闻资讯</view>
+    <view class="cn">音乐资讯</view>
     <view class="line"></view>
   </view>
   <view class="content">

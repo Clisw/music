@@ -1,0 +1,77 @@
+<xzs-header></xzs-header>
+
+<view class="banner">
+  <swiper
+  previous-margin="30rpx"
+  circular
+  autoplay
+  interval="3000"
+  indicator-dots
+  indicator-active-color="#BDA066"
+  indicator-color="rgba(255,255,255,0.3)"
+  >
+    <swiper-item>
+      <image src="/images/banner0.jpg" mode=""/>
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/banner1.jpg" mode=""/>
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/banner2.jpg" mode=""/>
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/banner3.jpg" mode=""/>
+    </swiper-item>
+  </swiper>
+</view>
+
+<view class="scrollNav">
+  <scroll-view scroll-x>
+
+    <navigator	open-type="reLaunch" 
+    url="/pages/classify/classify?idx={{index}}" 
+    class="item" wx:for="{{navArr}}" wx:key="_id">
+      <view class="pic">
+        <image class="pic" src="{{item.icon}}" mode="aspectFill"/>
+      </view>
+      <view class="text">
+        {{item.classname}}
+      </view>
+    </navigator>
+
+  </scroll-view>
+</view>
+
+
+<view class="about">
+  <view class="pubTitle">
+    <view class="en">introduce</view>
+    <view class="cn">古典音乐简介</view>
+    <view class="line"></view>
+  </view>
+
+  <view class="content">
+    <view class="row">广义是指那些从西方中世纪开始的、在欧洲主流文化背景下创作的西方古典音乐，主要因其复杂多样的创作技术和所能承载的厚重内涵而有别于通俗音乐和民间音乐。</view>
+    <view class="row">狭义指古典主义时期，1750年（J·S·巴赫去世）至1827年（贝多芬去世)，这一时期为古典主义音乐时期，它包含了两大时间段：“前古典时期”和“维也纳古典时期”。</view>
+    <view class="row">“最为著名的维也纳乐派也是在“维也纳古典时期”兴起，其代表作曲家有海顿、莫扎特和贝多芬，被后世称为“维也纳三杰”。</view>
+  </view>
+
+</view>
+
+
+
+<view class="news">
+  <view class="pubTitle">
+    <view class="en">News</view>
+    <view class="cn">新闻资讯</view>
+    <view class="line"></view>
+  </view>
+  <view class="content">
+    <view class="box" wx:for="{{newsArr}}" wx:key="index">       
+      <xzs-news-item item="{{item}}"></xzs-news-item>
+    </view>
+  </view>
+</view>
+
+
+<xzs-footer></xzs-footer>
